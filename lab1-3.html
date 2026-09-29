@@ -10,13 +10,20 @@
     <a-scene>
       <a-sky src="fotos/photo-1536866497758-6010af3ee792.jpeg"></a-sky>
       <!-- Water Plane -->
-      <a-plane position="0 0.1 -20" rotation="-90 0 0" width="100" height="40" color="#1E90FF"></a-plane>
+      <a-plane position="0 0.1 -20" rotation="-90 0 0" width="100" height="40" src="fotos/watertexture.jpg"></a-plane>
 
       <!-- Strand  Plane -->
-      <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="40" color="#F4A460"></a-plane>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="40" src="fotos/aerial_beach_01_diff_4k.jpg" material="repeat:3 3"></a-plane>
 
       <!-- Zon -->
-      <a-sphere position="10 15 -30" radius="4" color="#FFD700"></a-sphere>
+      <a-entity
+        id="sun"
+        position="10 -4 -30"
+        animation="property: position; from: 10 -4 -30; to: 10 18 -30; dur: 14000; loop: true; dir: alternate; easing: easeInOutSine">
+        <a-sphere radius="4" color="#FFD700"></a-sphere>
+        <a-light type="point" color="#FFD700" intensity="2" distance="120"></a-light>
+      </a-entity>
+
       <a-light type="ambient" color="#FFF"></a-light>
         <a-entity
         id="schelp"
@@ -56,7 +63,7 @@
         material="color: #FDF5E6; opacity: 0.9"
         animation="property: rotation; to: 0 8 0; dur: 1200; dir: alternate; loop: true; easing: easeInOutSine">
       </a-box>
-    </a-entity>
+    </a-entity> 
     </a-scene>
 </body>
 </html>

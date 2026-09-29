@@ -20,7 +20,7 @@
       <a-light type="ambient" color="#FFF"></a-light>
         <a-entity
         id="schelp"
-        geometry="primitive: cone; radiusBottom: 0.7; radiusTop: 0.15; height: 1.2; segmentsRadial: 64"
+        geometry="primitive: cone; radiusBottom: 0.3; radiusTop: 0.15; height: 1; segmentsRadial: 64"
         position="-1 -0.2 2"
         material="color: #bfced8;"
         sound="src: #oceaan; on: click; volume: 1.0"
@@ -38,6 +38,25 @@
         <a-camera position="0 1.6 0">
         <a-cursor></a-cursor>
         </a-camera>
+        <a-entity id="parasol" position="-4 0.5 3">
+      <a-cylinder position="0 0 0" radius="0.08" height="2.2" material="color: #8B4513"></a-cylinder>
+      <a-cone
+        position="0 1.25 0"
+        radius-bottom="1.1"
+        radius-top="0.05"
+        height="0.9"
+        material="color: #E74C3C"
+        animation="property: rotation; to: 0 10 6; dur: 1400; dir: alternate; loop: true; easing: easeInOutSine">
+      </a-cone>
+      <a-box
+        position="0 0.9 0"
+        width="1.7"
+        height="0.03"
+        depth="0.03"
+        material="color: #FDF5E6; opacity: 0.9"
+        animation="property: rotation; to: 0 8 0; dur: 1200; dir: alternate; loop: true; easing: easeInOutSine">
+      </a-box>
+    </a-entity>
     </a-scene>
 </body>
 </html>

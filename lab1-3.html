@@ -8,9 +8,18 @@
   </head>
   <body>
     <a-scene>
-      <a-sky src="fotos/photo-1536866497758-6010af3ee792.jpeg"></a-sky>
+      <a-sky id="daySky" src="fotos/photo-1536866497758-6010af3ee792.jpeg"></a-sky>
+      <a-sky id="nightSky" src="fotos/night2.jpg" material="opacity: 0"></a-sky>
+
       <!-- Water Plane -->
       <a-plane position="0 0.1 -20" rotation="-90 0 0" width="100" height="40" src="fotos/watertexture.jpg"></a-plane>
+
+      <a-entity position="0 0.2 -20">
+        <a-box position="-18 0 0" width="1.8" height="1.6" depth="1.2" color="#8fd0ea" animation="property: position; to: -18 0.5 0; dur: 2200; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
+        <a-box position="-8 0 0" width="1.8" height="1.8" depth="1.2" color="#8fd0ea" animation="property: position; to: -8 0.7 0; dur: 2600; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
+        <a-box position="2 0 0" width="1.8" height="1.4" depth="1.2" color="#8fd0ea" animation="property: position; to: 2 0.5 0; dur: 2400; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
+        <a-box position="12 0 0" width="1.8" height="1.7" depth="1.2" color="#8fd0ea" animation="property: position; to: 12 0.6 0; dur: 2800; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
+      </a-entity>
 
       <!-- Strand  Plane -->
       <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="40" src="fotos/aerial_beach_01_diff_4k.jpg" material="repeat:3 3"></a-plane>
@@ -18,30 +27,25 @@
       <!-- Zon -->
       <a-entity
         id="sun"
+        sunset-sky
         position="10 -4 -30"
         animation="property: position; from: 10 -4 -30; to: 10 18 -30; dur: 14000; loop: true; dir: alternate; easing: easeInOutSine">
         <a-sphere radius="4" color="#FFD700"></a-sphere>
         <a-light type="point" color="#FFD700" intensity="2" distance="120"></a-light>
+
       </a-entity>
 
-      <a-light type="ambient" color="#FFF"></a-light>
-        <a-entity
-        id="schelp"
-        geometry="primitive: cone; radiusBottom: 0.3; radiusTop: 0.15; height: 1; segmentsRadial: 64"
-        position="-1 -0.2 2"
-        material="color: #bfced8;"
-        sound="src: #oceaan; on: click; volume: 1.0"
-        animation="property: scale;
-        to: 1.5 1.5 1.5; 
-        dur: 300; 
-        dir: alternate; 
-        loop: 1"
-        animation__move="property: position; on: click; to: 1 -0.15 2; dur: 6000; dir: alternate; loop: true; easing: easeInOutSine"
-        animation__bob="property: rotation; on: click; to: -90 0 8; dur: 1800; dir: alternate; loop: true; easing: easeInOutSine">
-    </a-entity>
-    <a-assests>
+      <a-light id="ambientLight" type="ambient" color="#FFF" intensity="1"></a-light>
+
+      <a-entity id="schelp" position="-1 -0.2 2" rotation="0 0 20" animation="property: rotation; to: 0 360 20; dur: 12000; loop: true; easing: linear">
+        <a-sphere position="0 0 0" radius="0.55" scale="1.5 0.9 1.2" material="color: #dfeef1; opacity: 0.95"></a-sphere>
+        <a-torus position="0 0 0" radius="0.7" radius-tubular="0.12" arc="260" rotation="90 0 0" material="color: #c7dfe7"></a-torus>
+        <a-box position="-0.18 0.1 0.25" width="0.18" height="0.08" depth="0.10" material="color: #b7ccd6"></a-box>
+      </a-entity>
+
+      <a-assets>
         <audio id="oceaan" src="sounds/oceaan.mp3"></audio>
-    </a-assests>
+      </a-assets>
         <a-camera position="0 1.6 0">
         <a-cursor></a-cursor>
         </a-camera>
@@ -49,7 +53,7 @@
       <a-cylinder position="0 0 0" radius="0.08" height="2.2" material="color: #8B4513"></a-cylinder>
       <a-cone
         position="0 1.25 0"
-        radius-bottom="1.1"
+        radius-bottom="1.1"     
         radius-top="0.05"
         height="0.9"
         material="color: #E74C3C"
@@ -65,5 +69,7 @@
       </a-box>
     </a-entity> 
     </a-scene>
+    <script src="JS/night-sky.js"></script>
+    <script src="JS/app.js"></script>
 </body>
 </html>

@@ -10,13 +10,19 @@ function updateSkyTransition() {
     if (!sun || !daySky || !nightSky) return;
 
     const sunY = sun.object3D.position.y;
-    const nightOpacity = Math.max(0, Math.min(1, (10 - sunY) / 10));
+    const targetOpacity = Math.max(0, Math.min(1, (10 - sunY) / 10));
+    const easedOpacity = targetOpacity * targetOpacity * (3 - 2 * targetOpacity);
 
-    daySky.setAttribute('material', 'opacity', 1 - nightOpacity);
-    nightSky.setAttribute('material', 'opacity', nightOpacity);
+    daySky.setAttribute('material', 'opacity', 1 - easedOpacity);
+    nightSky.setAttribute('material', 'opacity', easedOpacity);
 }
 
-setInterval(updateSkyTransition, 100);
+function animateSky() {
+    updateSkyTransition();
+    requestAnimationFrame(animateSky);
+}
+
+requestAnimationFrame(animateSky);
 
 AFRAME.registerComponent('interactief-object', {
     init: function () {

@@ -9,16 +9,17 @@
   <body>
     <a-scene>
       <a-sky id="daySky" src="fotos/photo-1536866497758-6010af3ee792.jpeg"></a-sky>
-      <a-sky id="nightSky" src="fotos/night2.jpg" material="opacity: 0"></a-sky>
+      <a-sky id="nightSky" src="fotos/sky_96_2k.png" material="opacity: 0"></a-sky>
 
       <!-- Water Plane -->
       <a-plane position="0 0.1 -20" rotation="-90 0 0" width="100" height="40" src="fotos/watertexture.jpg"></a-plane>
 
+      <!-- Waves -->
       <a-entity position="0 0.2 -20">
-        <a-box position="-18 0 0" width="1.8" height="1.6" depth="1.2" color="#8fd0ea" animation="property: position; to: -18 0.5 0; dur: 2200; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
-        <a-box position="-8 0 0" width="1.8" height="1.8" depth="1.2" color="#8fd0ea" animation="property: position; to: -8 0.7 0; dur: 2600; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
-        <a-box position="2 0 0" width="1.8" height="1.4" depth="1.2" color="#8fd0ea" animation="property: position; to: 2 0.5 0; dur: 2400; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
-        <a-box position="12 0 0" width="1.8" height="1.7" depth="1.2" color="#8fd0ea" animation="property: position; to: 12 0.6 0; dur: 2800; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
+        <a-box position="-18 0 0" width="6" height="1.2" depth="1.2" color="#8fd0ea" animation="property: position; to: -18 0.5 0; dur: 2200; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
+        <a-box position="-8 0 0" width="6" height="1.4" depth="1.2" color="#8fd0ea" animation="property: position; to: -8 0.7 0; dur: 2600; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
+        <a-box position="2 0 0" width="6" height="1.6" depth="1.2" color="#8fd0ea" animation="property: position; to: 2 0.5 0; dur: 2400; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
+        <a-box position="12 0 0" width="6" height="1.7" depth="1.2" color="#8fd0ea" animation="property: position; to: 12 0.6 0; dur: 2800; dir: alternate; loop: true; easing: easeInOutSine"></a-box>
       </a-entity>
 
       <!-- Strand  Plane -->
@@ -28,8 +29,8 @@
       <a-entity
         id="sun"
         sunset-sky
-        position="10 -4 -30"
-        animation="property: position; from: 10 -4 -30; to: 10 18 -30; dur: 14000; loop: true; dir: alternate; easing: easeInOutSine">
+        position="-28 -4 -30"
+        animation="property: position; from: -28 -4 -30; to: -28 18 -30; dur: 14000; loop: true; dir: alternate; easing: easeInOutSine">
         <a-sphere radius="4" color="#FFD700"></a-sphere>
         <a-light type="point" color="#FFD700" intensity="2" distance="120"></a-light>
 
@@ -44,7 +45,7 @@
       </a-entity>
 
       <a-assets>
-        <audio id="oceaan" src="sounds/oceaan.mp3"></audio>
+        <audio id="oceaan" src="sounds/oceaan.mp3" autoplay="true" loop="true"></audio>
       </a-assets>
         <a-camera position="0 1.6 0">
         <a-cursor></a-cursor>
